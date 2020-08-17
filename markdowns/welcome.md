@@ -1,3 +1,5 @@
+** it's a draft for now **
+
 # Prerequisites
 
 I am assuming you are familiar with minimax (negamax) algorithm, preferably with alpha-beta pruning and optionally with iterative deepening, transposition tables etc. Also, you should know how Monte Carlo Tree Seach works, because the algorithm I will present will mostly resemble MCTS with [early playout termination](https://link.springer.com/chapter/10.1007/978-3-319-27992-3_2).
@@ -16,7 +18,7 @@ For Oware, mcts with early playout termination was used by at least 2 good bots 
 # Monte Carlo Tree Search
 
 Let's recall 4 steps of MCTS:
-- **selection**: select each child according to UCT: wins/visits + C * sqrt(log(parent visits) / visits), until you reach node leaf
+- **selection**: select child according to UCT: wins/visits + C * sqrt(log(parent visits) / visits), until you reach node leaf
 - **expansion**: expand the node leaf (either by 1 child or every possible children) and choose one of its child
 - **simulation**: from that child simulate the game randomly until the end of game; get the result [win, draw, lose] (1, 0, -1) or some implementations (1, 0.5, 0)
 - **backpropagation**: propagate the result accordingly, i.e. if win was for black player, then +1 for black player's nodes and -1 for white player's nodes, up until root
@@ -29,6 +31,14 @@ When I used 0 depth playouts, in other words used the eval, I found that using e
 
 
 # Best-First Minimax Search with UCT 
+
+It practically the same as MCTS, with few differences:
+- **selection**: select child according to eval value + C * sqrt(log(parent visits) / visits), or if child is not visited: eval value + FPU, until you reach node leaf
+- **expansion**: expand the node leaf by every possible children (every possible moves), eval every children
+- **"simulation"**: no simulation, we added eval to every children
+- **backpropagation**: *overwrite* parent's eval negamax style: parent's eval value = - max of children's value
+
+**Final selection**: select move according: 
 
 This is
 This Basic template lets you get started quickly with a simple working example. If it is your first contribution then you should have a look at the [Getting Started](https://tech.io/doc/getting-started-create-playground) document.

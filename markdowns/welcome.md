@@ -13,6 +13,12 @@ For Oware, mcts with early playout termination was used by at least 2 good bots 
 
 # Monte Carlo Tree Search
 
+Let's recall 4 steps of MCTS:
+- *selection*: select each child according to UCT: wins/visits + C * sqrt(log(parent visits) / visits), until you reach node leaf
+- *expansion*: expand the node leaf (either by 1 child or every possible children) and choose one of its child
+- *simulation*: from that child simulate the game randomly until the end of game; get the result [win, draw, lose] (1, 0, -1) or some implementations (1, 0.5, 0)
+- *backpropagation*: propagate the result accordingly, i.e. if win was for black player, then +1 for black player's nodes and -1 for white player's nodes, up until root
+
 
 
 This Basic template lets you get started quickly with a simple working example. If it is your first contribution then you should have a look at the [Getting Started](https://tech.io/doc/getting-started-create-playground) document.

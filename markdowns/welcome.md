@@ -1,4 +1,10 @@
-# Welcome!
+# Prerequisites
+
+I am assuming you are familiar with minimax (negamax) algorithm, preferably with alpha-beta pruning and optionally with iterative deepening, transposition tables etc. Also, you should know how Monte Carlo Tree Seach works, as algorithm I will present will mostly resemble MCTS with [early playout termination](https://link.springer.com/chapter/10.1007/978-3-319-27992-3_2).
+
+# Introduction
+
+Recently I've been playing with neural networks to improve the evaluation function of the minimax. Oware is quite NN-friendly
 
 This Basic template lets you get started quickly with a simple working example. If it is your first contribution then you should have a look at the [Getting Started](https://tech.io/doc/getting-started-create-playground) document.
 

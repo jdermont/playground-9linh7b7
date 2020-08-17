@@ -20,6 +20,7 @@ Let's recall 4 steps of MCTS:
 - **expansion**: expand the node leaf (either by 1 child or every possible children) and choose one of its child
 - **simulation**: from that child simulate the game randomly until the end of game; get the result [win, draw, lose] (1, 0, -1) or some implementations (1, 0.5, 0)
 - **backpropagation**: propagate the result accordingly, i.e. if win was for black player, then +1 for black player's nodes and -1 for white player's nodes, up until root
+
 And **final selection**: select move with highest visits; sometimes best score or lower confidence bound is used
 
 In early playout termination, we play (semi)randomly for N moves, then use eval to propagate score. Some implementations use eval directly, other impementations may use eval > 0 = win, eval < 0 = lose.

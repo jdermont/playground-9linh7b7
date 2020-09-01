@@ -46,9 +46,9 @@ I should remark I use NN for eval, which is in the range [-1,1] and the win is 1
 
 # Results
 
-With this approach, I have had great success in Oware, Breakthrough, Onitama and Othello (I use N-tuple instead of NN in the last two). Generally the winrate against my minimax bot is at least 70% using the same eval. Though I should remark, the minimax bot is rather generic alpha-beta with move ordering using transposition tables and killer moves. I didn't use any fancy pruning, quiescence search or search extensions. On the other hand best-first was sometimes very blind and have very misleading eval's result for move, i.e. it could give 0.9 score, just to prove the loss 1 ply later. I believe this was somewhat mitigated by using neural network.
+With this approach, I have had great success in Oware, Breakthrough, Onitama and Othello (I use N-tuple instead of NN in the last two). Generally the winrate against my minimax bot is at least 70% using the same eval. Though I should remark, the minimax bot is rather generic alpha-beta with move ordering using transposition tables and killer moves. I didn't use any fancy pruning, quiescence search or search extensions. Still with low effort it was able to beat minimax bot convincingly. On the other hand best-first was sometimes very blind and have very misleading eval's result for move, i.e. it could give 0.9 score, just to prove the loss 1 ply later. I believe this was somewhat mitigated by using neural network.
 
-Still I think, just as vanilla MCTS allows creating not-so-crappy bot without eval, the best-first minimax (with good eval) allows having better-than-alpha-beta search tree.
+My conclusion is: just as vanilla MCTS allows creating not-so-crappy bot without eval, the best-first minimax (with good eval) allows having better-than-alpha-beta search tree.
 
 
 # Future experiments
@@ -56,4 +56,3 @@ Still I think, just as vanilla MCTS allows creating not-so-crappy bot without ev
 - try shallow alpha-beta instead of eval
 - try some sort of softmax (probability distribution) instead of the UCT
 - incorporate transposition tables (or at least use them as NN cache)
-- 
